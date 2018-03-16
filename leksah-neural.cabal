@@ -1,0 +1,25 @@
+name: leksah-neural
+version: 0.0.1
+cabal-version: >=1.2
+build-type: Simple
+license: Free
+license-file: ""
+data-dir: ""
+ 
+executable leksah-neural
+    build-depends: QuickCheck -any, matrix >=0.3 && <0.4,
+                   random >=1.0 && <1.1, tuple -any, containers -any, vector -any,
+                   wx -any, wxcore -any, base >=4.6, array -any, regex-posix -any,
+                   MonadRandom -any
+    main-is: Main.hs
+    buildable: True
+    hs-source-dirs: src
+    other-modules: GUI NeuralNetwork RandMatrix
+ 
+test-suite test-leksah-neural
+    build-depends: QuickCheck -any, base -any
+    type: exitcode-stdio-1.0
+    main-is: Main.hs
+    buildable: True
+    cpp-options: -DMAIN_FUNCTION=testMain
+    hs-source-dirs: src
